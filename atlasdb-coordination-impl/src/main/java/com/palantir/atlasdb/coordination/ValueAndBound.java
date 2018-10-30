@@ -26,4 +26,8 @@ public interface ValueAndBound<T> {
     Optional<T> value();
     @Value.Parameter
     long bound();
+
+    static <T> ValueAndBound<T> of(T value, long bound) {
+        return ImmutableValueAndBound.of(Optional.of(value), bound);
+    }
 }
